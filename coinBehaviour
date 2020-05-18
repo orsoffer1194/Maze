@@ -1,0 +1,24 @@
+tem.Collections.Generic;
+using UnityEngine;
+
+public class coinBehaiver : MonoBehaviour
+{
+    ScoreManager GMS;
+    public float rotateSpeed = 50f;
+
+    void Awake()
+    {
+
+        GMS = GameObject.Find("ScoreManager").GetComponent<ScoreManager>();
+    
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        transform.Rotate(Vector3.left * rotateSpeed);
+    }
+
+    //if the player hit the coin
+  
+}
