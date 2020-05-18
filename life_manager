@@ -1,0 +1,39 @@
+using UnityEngine;
+using UnityEngine.UI;
+
+public class lifeManager : MonoBehaviour
+{
+
+
+    public int startingLives;
+    private int lifeCounter;
+
+    private Text text_life;
+
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        text_life = GetComponent<Text>();
+
+        lifeCounter = startingLives;
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+        text_life.text = "Score: " + lifeCounter;
+
+    }
+
+    public void GiveLife()
+    {
+        lifeCounter++;
+    }
+    public void TakeLife()
+    {
+        lifeCounter--;
+    }
+}
