@@ -1,0 +1,14 @@
+using UnityEngine.UI; //change score on screen
+public class ScoreManager : MonoBehaviour
+{
+
+    public GameObject scoreText;
+    public static int TheScore;
+
+
+
+    void Update()
+    {
+        scoreText.GetComponent<Text>().text = "x " + TheScore;
+    }
+}
