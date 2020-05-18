@@ -1,0 +1,33 @@
+using UnityEngine;
+
+public class HealthManager : MonoBehaviour
+{
+
+    private lifeManager lifeSystem;
+
+    public int MaxPlayerHealth;
+    public static int playerHealth;
+    // Start is called before the first frame update
+    void Start()
+    {
+        lifeSystem = FindObjectOfType<lifeManager>();
+        playerHealth = MaxPlayerHealth;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if(playerHealth <= 0)
+        {
+            playerHealth = 0;
+        }
+    }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "enemy")
+        {
+            lifeSystem.TakeLife();
+        }
+    }
+}
