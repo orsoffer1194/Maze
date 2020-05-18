@@ -1,0 +1,17 @@
+using UnityEngine;
+
+public class collectCoins : MonoBehaviour
+{
+
+    public AudioSource collectSound;
+
+
+    void OnTriggerEnter(Collider collision)
+    {
+        collectSound.Play();
+        ScoreManager.TheScore += 1;
+        //destroy the coin we collected
+        Destroy(gameObject);
+
+    }
+}
