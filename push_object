@@ -1,0 +1,32 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class pushing : MonoBehaviour
+{
+    public float pushPower = 2f;
+    public GameObject gameobject;
+
+    void OnCollisionEnter(Collision collision)
+    {
+        Rigidbody body = collision.collider.attachedRigidbody;
+        //no righidbody
+        if(body == null || body.isKinematic)
+        {
+            return;
+        }
+        //we dont want to push objects below us
+        if(collision.transform.position.y < -0.3f)
+        {
+            return;
+        }
+
+        // Calculate push direction from move direction,
+        // we only push objects to the sides never up and down
+        Vector3 pushDir = new Vector3(collision.transform.position.x, 0, collision.transform.position.z);
+
+        body.velocity = pushDir * pushPower;
+
+       
+    }
+}
