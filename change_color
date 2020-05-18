@@ -1,0 +1,10 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+public class changeColor : MonoBehaviour
+{
+    public Text change;
+    public Color newColor;
+
+}
